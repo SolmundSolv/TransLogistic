@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b1bb9b7c2024f3686ec7532dc96b2e2" Name="Diagram1">
+        <EntityTypeShape EntityType="TransLogisticModel.Adresy" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.DaneWysylki" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.Magazyn" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.Paczka" Width="1.5" PointX="8.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.Pojazd" Width="1.5" PointX="8" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.PozycjaZamowienia" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.Pracownik" Width="1.5" PointX="8" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.Przewoz" Width="1.5" PointX="10.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.PrzyjecieZewnetrzne" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.PrzyjecieZewnetrznePozycje" Width="1.5" PointX="7.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.RodzajPaczki" Width="1.5" PointX="6" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.RodzajPrzejazdu" Width="1.5" PointX="8" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.RozmiarPaczki" Width="1.5" PointX="6" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.Stanowisko" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.StatusPrzejazdu" Width="1.5" PointX="8" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.StatusZamowienia" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.WydanieZewnetrzne" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.WydanieZewnetrznePozycje" Width="1.5" PointX="7.5" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransLogisticModel.Zamowienie" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="TransLogisticModel.FK_158" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_173" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_66" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_80" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_161" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_215" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_218" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_116" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_124" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_190" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_209" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_39" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_95" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_112" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_101" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_92" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_134" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_142" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_98" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_203" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_104" ManuallyRouted="false" />
+        <AssociationConnector Association="TransLogisticModel.FK_187" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

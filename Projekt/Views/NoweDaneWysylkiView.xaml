@@ -1,0 +1,76 @@
+﻿<local:JedenViewBase x:Class="Projekt.Views.NoweDaneWysylkiView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projekt.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Views/StylZakladki.xaml"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="150"/>
+            <ColumnDefinition  Width="170"/>
+            <ColumnDefinition  Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="45"/>
+            <RowDefinition  Height="45"/>
+            <RowDefinition  Height="45"/>
+            <RowDefinition  Height="45"/>
+            <RowDefinition  Height="45"/>
+            <RowDefinition  Height="45"/>
+        </Grid.RowDefinitions>
+        <Label  Grid.Column="0"  Grid.Row="0"  Content="Imie" Style="{StaticResource LabelStandardowy}"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource TextBoxStandardowy}"  Text="{Binding imie, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <Label  Grid.Column="0"  Grid.Row="1"  Content="Nazwisko"  Style="{StaticResource LabelStandardowy}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource TextBoxStandardowy}"  Text="{Binding nazwisko, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+
+        <Label  Grid.Column="0"  Grid.Row="2"  Content="Adres" Style="{StaticResource LabelStandardowy}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Style="{StaticResource TextBoxNieedytowalny}"  Text="{Binding Path=AdresMiasto, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Button Grid.Column="2"  Grid.Row="2" Style="{StaticResource MetroButton}" Command="{Binding ShowAdresy}" Content="..." Height="30" Margin="0"/>
+
+
+
+        <Label  Grid.Column="0"  Grid.Row="3"  Content="Nr telefonu" Style="{StaticResource LabelStandardowy}"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Style="{StaticResource TextBoxStandardowy}"  Text="{Binding nr_tel, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label  Grid.Column="0"  Grid.Row="4"  Content="E-mail" Style="{StaticResource LabelStandardowy}"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Style="{StaticResource TextBoxStandardowy}"  Text="{Binding e_mail, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+    </Grid>
+</local:JedenViewBase>

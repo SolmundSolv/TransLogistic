@@ -1,0 +1,1788 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TransLogisticModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adresy">
+          <Key>
+            <PropertyRef Name="adresy_id" />
+          </Key>
+          <Property Name="adresy_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ulica" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="miasto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kod_pocztowy" Type="int" Nullable="false" />
+          <Property Name="kraj" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DaneWysylki">
+          <Key>
+            <PropertyRef Name="dane_wysylki_id" />
+          </Key>
+          <Property Name="dane_wysylki_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresy_id" Type="int" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nr_tel" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="e-mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Magazyn">
+          <Key>
+            <PropertyRef Name="magazyn_id" />
+          </Key>
+          <Property Name="magazyn_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresy_id" Type="int" Nullable="false" />
+          <Property Name="ladownosc" Type="int" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Paczka">
+          <Key>
+            <PropertyRef Name="paczka_id" />
+          </Key>
+          <Property Name="paczka_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rozmiar_paczki_id" Type="tinyint" Nullable="false" />
+          <Property Name="rodzaj_paczki_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pojazd">
+          <Key>
+            <PropertyRef Name="pojazd_id" />
+          </Key>
+          <Property Name="pojazd_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Marka" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ladownosc" Type="int" Nullable="false" />
+          <Property Name="VIN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PozycjaZamowienia">
+          <Key>
+            <PropertyRef Name="zamowienie_id" />
+            <PropertyRef Name="paczka_id" />
+          </Key>
+          <Property Name="zamowienie_id" Type="int" Nullable="false" />
+          <Property Name="paczka_id" Type="int" Nullable="false" />
+          <Property Name="numer" Type="int" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="pracownik_id" />
+          </Key>
+          <Property Name="pracownik_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adresy_id" Type="int" Nullable="false" />
+          <Property Name="stanowisko_id" Type="int" Nullable="false" />
+          <Property Name="imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefon" Type="int" Nullable="false" />
+          <Property Name="data_zatrudnienia" Type="date" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Przewoz">
+          <Key>
+            <PropertyRef Name="przewoz_id" />
+          </Key>
+          <Property Name="przewoz_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adres_dolwozu_id" Type="int" Nullable="false" />
+          <Property Name="status_przejazdu_id" Type="int" Nullable="false" />
+          <Property Name="rodzaj_przejazu_id" Type="int" Nullable="false" />
+          <Property Name="pracownik_id" Type="int" Nullable="false" />
+          <Property Name="zamowienie_id" Type="int" Nullable="false" />
+          <Property Name="pojazd_id" Type="int" Nullable="false" />
+          <Property Name="data_wyjazdu" Type="datetime" Nullable="false" />
+          <Property Name="data_przyjazdu" Type="datetime" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PrzyjecieZewnetrzne">
+          <Key>
+            <PropertyRef Name="przyjecie_zewnetrzne_id" />
+          </Key>
+          <Property Name="przyjecie_zewnetrzne_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numer" Type="int" Nullable="false" />
+          <Property Name="magazyn_id" Type="int" Nullable="false" />
+          <Property Name="data_wystawienia" Type="datetime" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PrzyjecieZewnetrznePozycje">
+          <Key>
+            <PropertyRef Name="przyjecie_zewnetrzne_pozycje_id" />
+          </Key>
+          <Property Name="przyjecie_zewnetrzne_pozycje_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="przyjecie_zewnetrzne_id" Type="int" Nullable="false" />
+          <Property Name="paczka_id" Type="int" Nullable="false" />
+          <Property Name="numer" Type="int" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RodzajPaczki">
+          <Key>
+            <PropertyRef Name="rodzaj_paczki_id" />
+          </Key>
+          <Property Name="rodzaj_paczki_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="text" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RodzajPrzejazdu">
+          <Key>
+            <PropertyRef Name="rodzaj_przejazu_id" />
+          </Key>
+          <Property Name="rodzaj_przejazu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="text" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RozmiarPaczki">
+          <Key>
+            <PropertyRef Name="rozmiar_paczki_id" />
+          </Key>
+          <Property Name="rozmiar_paczki_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa_rozmiaru" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="wysokosc_od" Type="int" Nullable="false" />
+          <Property Name="wysokosc_do" Type="int" Nullable="false" />
+          <Property Name="szerokosc_od" Type="int" Nullable="false" />
+          <Property Name="szerokosc_do" Type="int" Nullable="false" />
+          <Property Name="dlugosc_od" Type="int" Nullable="false" />
+          <Property Name="dlugosc_do" Type="int" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Stanowisko">
+          <Key>
+            <PropertyRef Name="stanowisko_id" />
+          </Key>
+          <Property Name="stanowisko_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="podstawowa_stawka" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="opis" Type="text" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StatusPrzejazdu">
+          <Key>
+            <PropertyRef Name="status_przejazdu_id" />
+          </Key>
+          <Property Name="status_przejazdu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="text" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StatusZamowienia">
+          <Key>
+            <PropertyRef Name="status_zamowienia_id" />
+          </Key>
+          <Property Name="status_zamowienia_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WydanieZewnetrzne">
+          <Key>
+            <PropertyRef Name="wydanie_zewnetrzne_id" />
+          </Key>
+          <Property Name="wydanie_zewnetrzne_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numer" Type="int" Nullable="false" />
+          <Property Name="magazyn_id" Type="int" Nullable="false" />
+          <Property Name="data-wystawienia" Type="datetime" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WydanieZewnetrznePozycje">
+          <Key>
+            <PropertyRef Name="wydanie_zewnetrzne_pozycje_id" />
+          </Key>
+          <Property Name="wydanie_zewnetrzne_pozycje_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wydanie_zewnetrzne_id" Type="int" Nullable="false" />
+          <Property Name="paczka_id" Type="int" Nullable="false" />
+          <Property Name="numer" Type="int" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Zamowienie">
+          <Key>
+            <PropertyRef Name="zamowienie_id" />
+          </Key>
+          <Property Name="zamowienie_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_zamowienia" Type="datetime" Nullable="false" />
+          <Property Name="dane_wysylki_id" Type="int" Nullable="false" />
+          <Property Name="status_zamowienia_id" Type="tinyint" Nullable="false" />
+          <Property Name="nr_zamowienia" Type="int" Nullable="false" />
+          <Property Name="kod" Type="int" Nullable="false" />
+          <Property Name="cena" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="waluta" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="data_realizacji" Type="datetime" Nullable="false" />
+          <Property Name="aktywnosc" Type="bit" Nullable="false" />
+          <Property Name="kto_dodal" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="datetime" Nullable="false" />
+          <Property Name="kto_edytowal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_edytowal" Type="datetime" />
+          <Property Name="kto_usunal" Type="nvarchar" MaxLength="50" />
+          <Property Name="kiedy_usunal" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_101">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="pracownik_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="pracownik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_104">
+          <End Role="StatusZamowienia" Type="Self.StatusZamowienia" Multiplicity="1" />
+          <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusZamowienia">
+              <PropertyRef Name="status_zamowienia_id" />
+            </Principal>
+            <Dependent Role="Zamowienie">
+              <PropertyRef Name="status_zamowienia_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_112">
+          <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="1" />
+          <End Role="PozycjaZamowienia" Type="Self.PozycjaZamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienie">
+              <PropertyRef Name="zamowienie_id" />
+            </Principal>
+            <Dependent Role="PozycjaZamowienia">
+              <PropertyRef Name="zamowienie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_116">
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="1" />
+          <End Role="PozycjaZamowienia" Type="Self.PozycjaZamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paczka">
+              <PropertyRef Name="paczka_id" />
+            </Principal>
+            <Dependent Role="PozycjaZamowienia">
+              <PropertyRef Name="paczka_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_124">
+          <End Role="RodzajPaczki" Type="Self.RodzajPaczki" Multiplicity="1" />
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajPaczki">
+              <PropertyRef Name="rodzaj_paczki_id" />
+            </Principal>
+            <Dependent Role="Paczka">
+              <PropertyRef Name="rodzaj_paczki_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_134">
+          <End Role="RodzajPrzejazdu" Type="Self.RodzajPrzejazdu" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajPrzejazdu">
+              <PropertyRef Name="rodzaj_przejazu_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="rodzaj_przejazu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_142">
+          <End Role="StatusPrzejazdu" Type="Self.StatusPrzejazdu" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusPrzejazdu">
+              <PropertyRef Name="status_przejazdu_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="status_przejazdu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_158">
+          <End Role="Adresy" Type="Self.Adresy" Multiplicity="1" />
+          <End Role="DaneWysylki" Type="Self.DaneWysylki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresy">
+              <PropertyRef Name="adresy_id" />
+            </Principal>
+            <Dependent Role="DaneWysylki">
+              <PropertyRef Name="adresy_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_161">
+          <End Role="DaneWysylki" Type="Self.DaneWysylki" Multiplicity="1" />
+          <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneWysylki">
+              <PropertyRef Name="dane_wysylki_id" />
+            </Principal>
+            <Dependent Role="Zamowienie">
+              <PropertyRef Name="dane_wysylki_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_173">
+          <End Role="Adresy" Type="Self.Adresy" Multiplicity="1" />
+          <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresy">
+              <PropertyRef Name="adresy_id" />
+            </Principal>
+            <Dependent Role="Magazyn">
+              <PropertyRef Name="adresy_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_187">
+          <End Role="WydanieZewnetrzne" Type="Self.WydanieZewnetrzne" Multiplicity="1" />
+          <End Role="WydanieZewnetrznePozycje" Type="Self.WydanieZewnetrznePozycje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WydanieZewnetrzne">
+              <PropertyRef Name="wydanie_zewnetrzne_id" />
+            </Principal>
+            <Dependent Role="WydanieZewnetrznePozycje">
+              <PropertyRef Name="wydanie_zewnetrzne_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_190">
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="1" />
+          <End Role="WydanieZewnetrznePozycje" Type="Self.WydanieZewnetrznePozycje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paczka">
+              <PropertyRef Name="paczka_id" />
+            </Principal>
+            <Dependent Role="WydanieZewnetrznePozycje">
+              <PropertyRef Name="paczka_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_203">
+          <End Role="PrzyjecieZewnetrzne" Type="Self.PrzyjecieZewnetrzne" Multiplicity="1" />
+          <End Role="PrzyjecieZewnetrznePozycje" Type="Self.PrzyjecieZewnetrznePozycje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrzyjecieZewnetrzne">
+              <PropertyRef Name="przyjecie_zewnetrzne_id" />
+            </Principal>
+            <Dependent Role="PrzyjecieZewnetrznePozycje">
+              <PropertyRef Name="przyjecie_zewnetrzne_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_209">
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="1" />
+          <End Role="PrzyjecieZewnetrznePozycje" Type="Self.PrzyjecieZewnetrznePozycje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paczka">
+              <PropertyRef Name="paczka_id" />
+            </Principal>
+            <Dependent Role="PrzyjecieZewnetrznePozycje">
+              <PropertyRef Name="paczka_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_215">
+          <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="1" />
+          <End Role="PrzyjecieZewnetrzne" Type="Self.PrzyjecieZewnetrzne" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyn">
+              <PropertyRef Name="magazyn_id" />
+            </Principal>
+            <Dependent Role="PrzyjecieZewnetrzne">
+              <PropertyRef Name="magazyn_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_218">
+          <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="1" />
+          <End Role="WydanieZewnetrzne" Type="Self.WydanieZewnetrzne" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyn">
+              <PropertyRef Name="magazyn_id" />
+            </Principal>
+            <Dependent Role="WydanieZewnetrzne">
+              <PropertyRef Name="magazyn_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_39">
+          <End Role="RozmiarPaczki" Type="Self.RozmiarPaczki" Multiplicity="1" />
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RozmiarPaczki">
+              <PropertyRef Name="rozmiar_paczki_id" />
+            </Principal>
+            <Dependent Role="Paczka">
+              <PropertyRef Name="rozmiar_paczki_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_66">
+          <End Role="Adresy" Type="Self.Adresy" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresy">
+              <PropertyRef Name="adresy_id" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="adresy_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_80">
+          <End Role="Adresy" Type="Self.Adresy" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresy">
+              <PropertyRef Name="adresy_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="adres_dolwozu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_92">
+          <End Role="Stanowisko" Type="Self.Stanowisko" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stanowisko">
+              <PropertyRef Name="stanowisko_id" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="stanowisko_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_95">
+          <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pojazd">
+              <PropertyRef Name="pojazd_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="pojazd_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_98">
+          <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienie">
+              <PropertyRef Name="zamowienie_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="zamowienie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TransLogisticModelStoreContainer">
+          <EntitySet Name="Adresy" EntityType="Self.Adresy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DaneWysylki" EntityType="Self.DaneWysylki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Magazyn" EntityType="Self.Magazyn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paczka" EntityType="Self.Paczka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pojazd" EntityType="Self.Pojazd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PozycjaZamowienia" EntityType="Self.PozycjaZamowienia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Przewoz" EntityType="Self.Przewoz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrzyjecieZewnetrzne" EntityType="Self.PrzyjecieZewnetrzne" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrzyjecieZewnetrznePozycje" EntityType="Self.PrzyjecieZewnetrznePozycje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RodzajPaczki" EntityType="Self.RodzajPaczki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RodzajPrzejazdu" EntityType="Self.RodzajPrzejazdu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RozmiarPaczki" EntityType="Self.RozmiarPaczki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusPrzejazdu" EntityType="Self.StatusPrzejazdu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusZamowienia" EntityType="Self.StatusZamowienia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WydanieZewnetrzne" EntityType="Self.WydanieZewnetrzne" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WydanieZewnetrznePozycje" EntityType="Self.WydanieZewnetrznePozycje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zamowienie" EntityType="Self.Zamowienie" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_101" Association="Self.FK_101">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_104" Association="Self.FK_104">
+            <End Role="StatusZamowienia" EntitySet="StatusZamowienia" />
+            <End Role="Zamowienie" EntitySet="Zamowienie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_112" Association="Self.FK_112">
+            <End Role="Zamowienie" EntitySet="Zamowienie" />
+            <End Role="PozycjaZamowienia" EntitySet="PozycjaZamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_116" Association="Self.FK_116">
+            <End Role="Paczka" EntitySet="Paczka" />
+            <End Role="PozycjaZamowienia" EntitySet="PozycjaZamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_124" Association="Self.FK_124">
+            <End Role="RodzajPaczki" EntitySet="RodzajPaczki" />
+            <End Role="Paczka" EntitySet="Paczka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_134" Association="Self.FK_134">
+            <End Role="RodzajPrzejazdu" EntitySet="RodzajPrzejazdu" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_142" Association="Self.FK_142">
+            <End Role="StatusPrzejazdu" EntitySet="StatusPrzejazdu" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_158" Association="Self.FK_158">
+            <End Role="Adresy" EntitySet="Adresy" />
+            <End Role="DaneWysylki" EntitySet="DaneWysylki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_161" Association="Self.FK_161">
+            <End Role="DaneWysylki" EntitySet="DaneWysylki" />
+            <End Role="Zamowienie" EntitySet="Zamowienie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_173" Association="Self.FK_173">
+            <End Role="Adresy" EntitySet="Adresy" />
+            <End Role="Magazyn" EntitySet="Magazyn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_187" Association="Self.FK_187">
+            <End Role="WydanieZewnetrzne" EntitySet="WydanieZewnetrzne" />
+            <End Role="WydanieZewnetrznePozycje" EntitySet="WydanieZewnetrznePozycje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_190" Association="Self.FK_190">
+            <End Role="Paczka" EntitySet="Paczka" />
+            <End Role="WydanieZewnetrznePozycje" EntitySet="WydanieZewnetrznePozycje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_203" Association="Self.FK_203">
+            <End Role="PrzyjecieZewnetrzne" EntitySet="PrzyjecieZewnetrzne" />
+            <End Role="PrzyjecieZewnetrznePozycje" EntitySet="PrzyjecieZewnetrznePozycje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_209" Association="Self.FK_209">
+            <End Role="Paczka" EntitySet="Paczka" />
+            <End Role="PrzyjecieZewnetrznePozycje" EntitySet="PrzyjecieZewnetrznePozycje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_215" Association="Self.FK_215">
+            <End Role="Magazyn" EntitySet="Magazyn" />
+            <End Role="PrzyjecieZewnetrzne" EntitySet="PrzyjecieZewnetrzne" />
+          </AssociationSet>
+          <AssociationSet Name="FK_218" Association="Self.FK_218">
+            <End Role="Magazyn" EntitySet="Magazyn" />
+            <End Role="WydanieZewnetrzne" EntitySet="WydanieZewnetrzne" />
+          </AssociationSet>
+          <AssociationSet Name="FK_39" Association="Self.FK_39">
+            <End Role="RozmiarPaczki" EntitySet="RozmiarPaczki" />
+            <End Role="Paczka" EntitySet="Paczka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_66" Association="Self.FK_66">
+            <End Role="Adresy" EntitySet="Adresy" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_80" Association="Self.FK_80">
+            <End Role="Adresy" EntitySet="Adresy" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_92" Association="Self.FK_92">
+            <End Role="Stanowisko" EntitySet="Stanowisko" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_95" Association="Self.FK_95">
+            <End Role="Pojazd" EntitySet="Pojazd" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_98" Association="Self.FK_98">
+            <End Role="Zamowienie" EntitySet="Zamowienie" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TransLogisticModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adresy">
+          <Key>
+            <PropertyRef Name="adresy_id" />
+          </Key>
+          <Property Name="adresy_id" Type="Int32" Nullable="false" />
+          <Property Name="ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="miasto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kod_pocztowy" Type="Int32" Nullable="false" />
+          <Property Name="kraj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DaneWysylki" Relationship="Self.FK_158" FromRole="Adresy" ToRole="DaneWysylki" />
+          <NavigationProperty Name="Magazyn" Relationship="Self.FK_173" FromRole="Adresy" ToRole="Magazyn" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_66" FromRole="Adresy" ToRole="Pracownik" />
+          <NavigationProperty Name="Przewoz" Relationship="Self.FK_80" FromRole="Adresy" ToRole="Przewoz" />
+        </EntityType>
+        <EntityType Name="DaneWysylki">
+          <Key>
+            <PropertyRef Name="dane_wysylki_id" />
+          </Key>
+          <Property Name="dane_wysylki_id" Type="Int32" Nullable="false" />
+          <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="adresy_id" Type="Int32" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nr_tel" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="e_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Adresy" Relationship="Self.FK_158" FromRole="DaneWysylki" ToRole="Adresy" />
+          <NavigationProperty Name="Zamowienie" Relationship="Self.FK_161" FromRole="DaneWysylki" ToRole="Zamowienie" />
+        </EntityType>
+        <EntityType Name="Magazyn">
+          <Key>
+            <PropertyRef Name="magazyn_id" />
+          </Key>
+          <Property Name="magazyn_id" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="adresy_id" Type="Int32" Nullable="false" />
+          <Property Name="ladownosc" Type="Int32" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Adresy" Relationship="Self.FK_173" FromRole="Magazyn" ToRole="Adresy" />
+          <NavigationProperty Name="PrzyjecieZewnetrzne" Relationship="Self.FK_215" FromRole="Magazyn" ToRole="PrzyjecieZewnetrzne" />
+          <NavigationProperty Name="WydanieZewnetrzne" Relationship="Self.FK_218" FromRole="Magazyn" ToRole="WydanieZewnetrzne" />
+        </EntityType>
+        <EntityType Name="Paczka">
+          <Key>
+            <PropertyRef Name="paczka_id" />
+          </Key>
+          <Property Name="paczka_id" Type="Int32" Nullable="false" />
+          <Property Name="rozmiar_paczki_id" Type="Byte" Nullable="false" />
+          <Property Name="rodzaj_paczki_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PozycjaZamowienia" Relationship="Self.FK_116" FromRole="Paczka" ToRole="PozycjaZamowienia" />
+          <NavigationProperty Name="RodzajPaczki" Relationship="Self.FK_124" FromRole="Paczka" ToRole="RodzajPaczki" />
+          <NavigationProperty Name="WydanieZewnetrznePozycje" Relationship="Self.FK_190" FromRole="Paczka" ToRole="WydanieZewnetrznePozycje" />
+          <NavigationProperty Name="PrzyjecieZewnetrznePozycje" Relationship="Self.FK_209" FromRole="Paczka" ToRole="PrzyjecieZewnetrznePozycje" />
+          <NavigationProperty Name="RozmiarPaczki" Relationship="Self.FK_39" FromRole="Paczka" ToRole="RozmiarPaczki" />
+        </EntityType>
+        <EntityType Name="Pojazd">
+          <Key>
+            <PropertyRef Name="pojazd_id" />
+          </Key>
+          <Property Name="pojazd_id" Type="Int32" Nullable="false" />
+          <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ladownosc" Type="Int32" Nullable="false" />
+          <Property Name="VIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Przewoz" Relationship="Self.FK_95" FromRole="Pojazd" ToRole="Przewoz" />
+        </EntityType>
+        <EntityType Name="PozycjaZamowienia">
+          <Key>
+            <PropertyRef Name="zamowienie_id" />
+            <PropertyRef Name="paczka_id" />
+          </Key>
+          <Property Name="zamowienie_id" Type="Int32" Nullable="false" />
+          <Property Name="paczka_id" Type="Int32" Nullable="false" />
+          <Property Name="numer" Type="Int32" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Paczka" Relationship="Self.FK_116" FromRole="PozycjaZamowienia" ToRole="Paczka" />
+          <NavigationProperty Name="Zamowienie" Relationship="Self.FK_112" FromRole="PozycjaZamowienia" ToRole="Zamowienie" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="pracownik_id" />
+          </Key>
+          <Property Name="pracownik_id" Type="Int32" Nullable="false" />
+          <Property Name="adresy_id" Type="Int32" Nullable="false" />
+          <Property Name="stanowisko_id" Type="Int32" Nullable="false" />
+          <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefon" Type="Int32" Nullable="false" />
+          <Property Name="data_zatrudnienia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Adresy" Relationship="Self.FK_66" FromRole="Pracownik" ToRole="Adresy" />
+          <NavigationProperty Name="Przewoz" Relationship="Self.FK_101" FromRole="Pracownik" ToRole="Przewoz" />
+          <NavigationProperty Name="Stanowisko" Relationship="Self.FK_92" FromRole="Pracownik" ToRole="Stanowisko" />
+        </EntityType>
+        <EntityType Name="Przewoz">
+          <Key>
+            <PropertyRef Name="przewoz_id" />
+          </Key>
+          <Property Name="przewoz_id" Type="Int32" Nullable="false" />
+          <Property Name="adres_dolwozu_id" Type="Int32" Nullable="false" />
+          <Property Name="status_przejazdu_id" Type="Int32" Nullable="false" />
+          <Property Name="rodzaj_przejazu_id" Type="Int32" Nullable="false" />
+          <Property Name="pracownik_id" Type="Int32" Nullable="false" />
+          <Property Name="zamowienie_id" Type="Int32" Nullable="false" />
+          <Property Name="pojazd_id" Type="Int32" Nullable="false" />
+          <Property Name="data_wyjazdu" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="data_przyjazdu" Type="DateTime" Precision="3" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Adresy" Relationship="Self.FK_80" FromRole="Przewoz" ToRole="Adresy" />
+          <NavigationProperty Name="Pojazd" Relationship="Self.FK_95" FromRole="Przewoz" ToRole="Pojazd" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_101" FromRole="Przewoz" ToRole="Pracownik" />
+          <NavigationProperty Name="RodzajPrzejazdu" Relationship="Self.FK_134" FromRole="Przewoz" ToRole="RodzajPrzejazdu" />
+          <NavigationProperty Name="StatusPrzejazdu" Relationship="Self.FK_142" FromRole="Przewoz" ToRole="StatusPrzejazdu" />
+          <NavigationProperty Name="Zamowienie" Relationship="Self.FK_98" FromRole="Przewoz" ToRole="Zamowienie" />
+        </EntityType>
+        <EntityType Name="PrzyjecieZewnetrzne">
+          <Key>
+            <PropertyRef Name="przyjecie_zewnetrzne_id" />
+          </Key>
+          <Property Name="przyjecie_zewnetrzne_id" Type="Int32" Nullable="false" />
+          <Property Name="numer" Type="Int32" Nullable="false" />
+          <Property Name="magazyn_id" Type="Int32" Nullable="false" />
+          <Property Name="data_wystawienia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Magazyn" Relationship="Self.FK_215" FromRole="PrzyjecieZewnetrzne" ToRole="Magazyn" />
+          <NavigationProperty Name="PrzyjecieZewnetrznePozycje" Relationship="Self.FK_203" FromRole="PrzyjecieZewnetrzne" ToRole="PrzyjecieZewnetrznePozycje" />
+        </EntityType>
+        <EntityType Name="PrzyjecieZewnetrznePozycje">
+          <Key>
+            <PropertyRef Name="przyjecie_zewnetrzne_pozycje_id" />
+          </Key>
+          <Property Name="przyjecie_zewnetrzne_pozycje_id" Type="Int32" Nullable="false" />
+          <Property Name="przyjecie_zewnetrzne_id" Type="Int32" Nullable="false" />
+          <Property Name="paczka_id" Type="Int32" Nullable="false" />
+          <Property Name="numer" Type="Int32" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Paczka" Relationship="Self.FK_209" FromRole="PrzyjecieZewnetrznePozycje" ToRole="Paczka" />
+          <NavigationProperty Name="PrzyjecieZewnetrzne" Relationship="Self.FK_203" FromRole="PrzyjecieZewnetrznePozycje" ToRole="PrzyjecieZewnetrzne" />
+        </EntityType>
+        <EntityType Name="RodzajPaczki">
+          <Key>
+            <PropertyRef Name="rodzaj_paczki_id" />
+          </Key>
+          <Property Name="rodzaj_paczki_id" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Paczka" Relationship="Self.FK_124" FromRole="RodzajPaczki" ToRole="Paczka" />
+        </EntityType>
+        <EntityType Name="RodzajPrzejazdu">
+          <Key>
+            <PropertyRef Name="rodzaj_przejazu_id" />
+          </Key>
+          <Property Name="rodzaj_przejazu_id" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Przewoz" Relationship="Self.FK_134" FromRole="RodzajPrzejazdu" ToRole="Przewoz" />
+        </EntityType>
+        <EntityType Name="RozmiarPaczki">
+          <Key>
+            <PropertyRef Name="rozmiar_paczki_id" />
+          </Key>
+          <Property Name="rozmiar_paczki_id" Type="Byte" Nullable="false" />
+          <Property Name="nazwa_rozmiaru" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="wysokosc_od" Type="Int32" Nullable="false" />
+          <Property Name="wysokosc_do" Type="Int32" Nullable="false" />
+          <Property Name="szerokosc_od" Type="Int32" Nullable="false" />
+          <Property Name="szerokosc_do" Type="Int32" Nullable="false" />
+          <Property Name="dlugosc_od" Type="Int32" Nullable="false" />
+          <Property Name="dlugosc_do" Type="Int32" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Paczka" Relationship="Self.FK_39" FromRole="RozmiarPaczki" ToRole="Paczka" />
+        </EntityType>
+        <EntityType Name="Stanowisko">
+          <Key>
+            <PropertyRef Name="stanowisko_id" />
+          </Key>
+          <Property Name="stanowisko_id" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="podstawowa_stawka" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_92" FromRole="Stanowisko" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="StatusPrzejazdu">
+          <Key>
+            <PropertyRef Name="status_przejazdu_id" />
+          </Key>
+          <Property Name="status_przejazdu_id" Type="Int32" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Przewoz" Relationship="Self.FK_142" FromRole="StatusPrzejazdu" ToRole="Przewoz" />
+        </EntityType>
+        <EntityType Name="StatusZamowienia">
+          <Key>
+            <PropertyRef Name="status_zamowienia_id" />
+          </Key>
+          <Property Name="status_zamowienia_id" Type="Byte" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Zamowienie" Relationship="Self.FK_104" FromRole="StatusZamowienia" ToRole="Zamowienie" />
+        </EntityType>
+        <EntityType Name="WydanieZewnetrzne">
+          <Key>
+            <PropertyRef Name="wydanie_zewnetrzne_id" />
+          </Key>
+          <Property Name="wydanie_zewnetrzne_id" Type="Int32" Nullable="false" />
+          <Property Name="numer" Type="Int32" Nullable="false" />
+          <Property Name="magazyn_id" Type="Int32" Nullable="false" />
+          <Property Name="data_wystawienia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Magazyn" Relationship="Self.FK_218" FromRole="WydanieZewnetrzne" ToRole="Magazyn" />
+          <NavigationProperty Name="WydanieZewnetrznePozycje" Relationship="Self.FK_187" FromRole="WydanieZewnetrzne" ToRole="WydanieZewnetrznePozycje" />
+        </EntityType>
+        <EntityType Name="WydanieZewnetrznePozycje">
+          <Key>
+            <PropertyRef Name="wydanie_zewnetrzne_pozycje_id" />
+          </Key>
+          <Property Name="wydanie_zewnetrzne_pozycje_id" Type="Int32" Nullable="false" />
+          <Property Name="wydanie_zewnetrzne_id" Type="Int32" Nullable="false" />
+          <Property Name="paczka_id" Type="Int32" Nullable="false" />
+          <Property Name="numer" Type="Int32" Nullable="false" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Paczka" Relationship="Self.FK_190" FromRole="WydanieZewnetrznePozycje" ToRole="Paczka" />
+          <NavigationProperty Name="WydanieZewnetrzne" Relationship="Self.FK_187" FromRole="WydanieZewnetrznePozycje" ToRole="WydanieZewnetrzne" />
+        </EntityType>
+        <EntityType Name="Zamowienie">
+          <Key>
+            <PropertyRef Name="zamowienie_id" />
+          </Key>
+          <Property Name="zamowienie_id" Type="Int32" Nullable="false" />
+          <Property Name="data_zamowienia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dane_wysylki_id" Type="Int32" Nullable="false" />
+          <Property Name="status_zamowienia_id" Type="Byte" Nullable="false" />
+          <Property Name="nr_zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="kod" Type="Int32" Nullable="false" />
+          <Property Name="cena" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="waluta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="data_realizacji" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="aktywnosc" Type="Boolean" Nullable="false" />
+          <Property Name="kto_dodal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kiedy_dodal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="kto_edytowal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_edytowal" Type="DateTime" Precision="3" />
+          <Property Name="kto_usunal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kiedy_usunal" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DaneWysylki" Relationship="Self.FK_161" FromRole="Zamowienie" ToRole="DaneWysylki" />
+          <NavigationProperty Name="PozycjaZamowienia" Relationship="Self.FK_112" FromRole="Zamowienie" ToRole="PozycjaZamowienia" />
+          <NavigationProperty Name="Przewoz" Relationship="Self.FK_98" FromRole="Zamowienie" ToRole="Przewoz" />
+          <NavigationProperty Name="StatusZamowienia" Relationship="Self.FK_104" FromRole="Zamowienie" ToRole="StatusZamowienia" />
+        </EntityType>
+        <Association Name="FK_158">
+          <End Role="Adresy" Type="Self.Adresy" Multiplicity="1" />
+          <End Role="DaneWysylki" Type="Self.DaneWysylki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresy">
+              <PropertyRef Name="adresy_id" />
+            </Principal>
+            <Dependent Role="DaneWysylki">
+              <PropertyRef Name="adresy_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_173">
+          <End Role="Adresy" Type="Self.Adresy" Multiplicity="1" />
+          <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresy">
+              <PropertyRef Name="adresy_id" />
+            </Principal>
+            <Dependent Role="Magazyn">
+              <PropertyRef Name="adresy_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_66">
+          <End Role="Adresy" Type="Self.Adresy" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresy">
+              <PropertyRef Name="adresy_id" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="adresy_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_80">
+          <End Role="Adresy" Type="Self.Adresy" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresy">
+              <PropertyRef Name="adresy_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="adres_dolwozu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_161">
+          <End Role="DaneWysylki" Type="Self.DaneWysylki" Multiplicity="1" />
+          <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneWysylki">
+              <PropertyRef Name="dane_wysylki_id" />
+            </Principal>
+            <Dependent Role="Zamowienie">
+              <PropertyRef Name="dane_wysylki_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_215">
+          <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="1" />
+          <End Role="PrzyjecieZewnetrzne" Type="Self.PrzyjecieZewnetrzne" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyn">
+              <PropertyRef Name="magazyn_id" />
+            </Principal>
+            <Dependent Role="PrzyjecieZewnetrzne">
+              <PropertyRef Name="magazyn_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_218">
+          <End Role="Magazyn" Type="Self.Magazyn" Multiplicity="1" />
+          <End Role="WydanieZewnetrzne" Type="Self.WydanieZewnetrzne" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Magazyn">
+              <PropertyRef Name="magazyn_id" />
+            </Principal>
+            <Dependent Role="WydanieZewnetrzne">
+              <PropertyRef Name="magazyn_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_116">
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="1" />
+          <End Role="PozycjaZamowienia" Type="Self.PozycjaZamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paczka">
+              <PropertyRef Name="paczka_id" />
+            </Principal>
+            <Dependent Role="PozycjaZamowienia">
+              <PropertyRef Name="paczka_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_124">
+          <End Role="RodzajPaczki" Type="Self.RodzajPaczki" Multiplicity="1" />
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajPaczki">
+              <PropertyRef Name="rodzaj_paczki_id" />
+            </Principal>
+            <Dependent Role="Paczka">
+              <PropertyRef Name="rodzaj_paczki_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_190">
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="1" />
+          <End Role="WydanieZewnetrznePozycje" Type="Self.WydanieZewnetrznePozycje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paczka">
+              <PropertyRef Name="paczka_id" />
+            </Principal>
+            <Dependent Role="WydanieZewnetrznePozycje">
+              <PropertyRef Name="paczka_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_209">
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="1" />
+          <End Role="PrzyjecieZewnetrznePozycje" Type="Self.PrzyjecieZewnetrznePozycje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paczka">
+              <PropertyRef Name="paczka_id" />
+            </Principal>
+            <Dependent Role="PrzyjecieZewnetrznePozycje">
+              <PropertyRef Name="paczka_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_39">
+          <End Role="RozmiarPaczki" Type="Self.RozmiarPaczki" Multiplicity="1" />
+          <End Role="Paczka" Type="Self.Paczka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RozmiarPaczki">
+              <PropertyRef Name="rozmiar_paczki_id" />
+            </Principal>
+            <Dependent Role="Paczka">
+              <PropertyRef Name="rozmiar_paczki_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_95">
+          <End Role="Pojazd" Type="Self.Pojazd" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pojazd">
+              <PropertyRef Name="pojazd_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="pojazd_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_112">
+          <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="1" />
+          <End Role="PozycjaZamowienia" Type="Self.PozycjaZamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienie">
+              <PropertyRef Name="zamowienie_id" />
+            </Principal>
+            <Dependent Role="PozycjaZamowienia">
+              <PropertyRef Name="zamowienie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_101">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="pracownik_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="pracownik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_92">
+          <End Role="Stanowisko" Type="Self.Stanowisko" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stanowisko">
+              <PropertyRef Name="stanowisko_id" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="stanowisko_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_134">
+          <End Role="RodzajPrzejazdu" Type="Self.RodzajPrzejazdu" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajPrzejazdu">
+              <PropertyRef Name="rodzaj_przejazu_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="rodzaj_przejazu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_142">
+          <End Role="StatusPrzejazdu" Type="Self.StatusPrzejazdu" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusPrzejazdu">
+              <PropertyRef Name="status_przejazdu_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="status_przejazdu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_98">
+          <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="1" />
+          <End Role="Przewoz" Type="Self.Przewoz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienie">
+              <PropertyRef Name="zamowienie_id" />
+            </Principal>
+            <Dependent Role="Przewoz">
+              <PropertyRef Name="zamowienie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_203">
+          <End Role="PrzyjecieZewnetrzne" Type="Self.PrzyjecieZewnetrzne" Multiplicity="1" />
+          <End Role="PrzyjecieZewnetrznePozycje" Type="Self.PrzyjecieZewnetrznePozycje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrzyjecieZewnetrzne">
+              <PropertyRef Name="przyjecie_zewnetrzne_id" />
+            </Principal>
+            <Dependent Role="PrzyjecieZewnetrznePozycje">
+              <PropertyRef Name="przyjecie_zewnetrzne_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_104">
+          <End Role="StatusZamowienia" Type="Self.StatusZamowienia" Multiplicity="1" />
+          <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusZamowienia">
+              <PropertyRef Name="status_zamowienia_id" />
+            </Principal>
+            <Dependent Role="Zamowienie">
+              <PropertyRef Name="status_zamowienia_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_187">
+          <End Role="WydanieZewnetrzne" Type="Self.WydanieZewnetrzne" Multiplicity="1" />
+          <End Role="WydanieZewnetrznePozycje" Type="Self.WydanieZewnetrznePozycje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WydanieZewnetrzne">
+              <PropertyRef Name="wydanie_zewnetrzne_id" />
+            </Principal>
+            <Dependent Role="WydanieZewnetrznePozycje">
+              <PropertyRef Name="wydanie_zewnetrzne_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TransLogisticEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adresy" EntityType="Self.Adresy" />
+          <EntitySet Name="DaneWysylki" EntityType="Self.DaneWysylki" />
+          <EntitySet Name="Magazyn" EntityType="Self.Magazyn" />
+          <EntitySet Name="Paczka" EntityType="Self.Paczka" />
+          <EntitySet Name="Pojazd" EntityType="Self.Pojazd" />
+          <EntitySet Name="PozycjaZamowienia" EntityType="Self.PozycjaZamowienia" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" />
+          <EntitySet Name="Przewoz" EntityType="Self.Przewoz" />
+          <EntitySet Name="PrzyjecieZewnetrzne" EntityType="Self.PrzyjecieZewnetrzne" />
+          <EntitySet Name="PrzyjecieZewnetrznePozycje" EntityType="Self.PrzyjecieZewnetrznePozycje" />
+          <EntitySet Name="RodzajPaczki" EntityType="Self.RodzajPaczki" />
+          <EntitySet Name="RodzajPrzejazdu" EntityType="Self.RodzajPrzejazdu" />
+          <EntitySet Name="RozmiarPaczki" EntityType="Self.RozmiarPaczki" />
+          <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" />
+          <EntitySet Name="StatusPrzejazdu" EntityType="Self.StatusPrzejazdu" />
+          <EntitySet Name="StatusZamowienia" EntityType="Self.StatusZamowienia" />
+          <EntitySet Name="WydanieZewnetrzne" EntityType="Self.WydanieZewnetrzne" />
+          <EntitySet Name="WydanieZewnetrznePozycje" EntityType="Self.WydanieZewnetrznePozycje" />
+          <EntitySet Name="Zamowienie" EntityType="Self.Zamowienie" />
+          <AssociationSet Name="FK_158" Association="Self.FK_158">
+            <End Role="Adresy" EntitySet="Adresy" />
+            <End Role="DaneWysylki" EntitySet="DaneWysylki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_173" Association="Self.FK_173">
+            <End Role="Adresy" EntitySet="Adresy" />
+            <End Role="Magazyn" EntitySet="Magazyn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_66" Association="Self.FK_66">
+            <End Role="Adresy" EntitySet="Adresy" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_80" Association="Self.FK_80">
+            <End Role="Adresy" EntitySet="Adresy" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_161" Association="Self.FK_161">
+            <End Role="DaneWysylki" EntitySet="DaneWysylki" />
+            <End Role="Zamowienie" EntitySet="Zamowienie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_215" Association="Self.FK_215">
+            <End Role="Magazyn" EntitySet="Magazyn" />
+            <End Role="PrzyjecieZewnetrzne" EntitySet="PrzyjecieZewnetrzne" />
+          </AssociationSet>
+          <AssociationSet Name="FK_218" Association="Self.FK_218">
+            <End Role="Magazyn" EntitySet="Magazyn" />
+            <End Role="WydanieZewnetrzne" EntitySet="WydanieZewnetrzne" />
+          </AssociationSet>
+          <AssociationSet Name="FK_116" Association="Self.FK_116">
+            <End Role="Paczka" EntitySet="Paczka" />
+            <End Role="PozycjaZamowienia" EntitySet="PozycjaZamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_124" Association="Self.FK_124">
+            <End Role="RodzajPaczki" EntitySet="RodzajPaczki" />
+            <End Role="Paczka" EntitySet="Paczka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_190" Association="Self.FK_190">
+            <End Role="Paczka" EntitySet="Paczka" />
+            <End Role="WydanieZewnetrznePozycje" EntitySet="WydanieZewnetrznePozycje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_209" Association="Self.FK_209">
+            <End Role="Paczka" EntitySet="Paczka" />
+            <End Role="PrzyjecieZewnetrznePozycje" EntitySet="PrzyjecieZewnetrznePozycje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_39" Association="Self.FK_39">
+            <End Role="RozmiarPaczki" EntitySet="RozmiarPaczki" />
+            <End Role="Paczka" EntitySet="Paczka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_95" Association="Self.FK_95">
+            <End Role="Pojazd" EntitySet="Pojazd" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_112" Association="Self.FK_112">
+            <End Role="Zamowienie" EntitySet="Zamowienie" />
+            <End Role="PozycjaZamowienia" EntitySet="PozycjaZamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_101" Association="Self.FK_101">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_92" Association="Self.FK_92">
+            <End Role="Stanowisko" EntitySet="Stanowisko" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_134" Association="Self.FK_134">
+            <End Role="RodzajPrzejazdu" EntitySet="RodzajPrzejazdu" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_142" Association="Self.FK_142">
+            <End Role="StatusPrzejazdu" EntitySet="StatusPrzejazdu" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_98" Association="Self.FK_98">
+            <End Role="Zamowienie" EntitySet="Zamowienie" />
+            <End Role="Przewoz" EntitySet="Przewoz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_203" Association="Self.FK_203">
+            <End Role="PrzyjecieZewnetrzne" EntitySet="PrzyjecieZewnetrzne" />
+            <End Role="PrzyjecieZewnetrznePozycje" EntitySet="PrzyjecieZewnetrznePozycje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_104" Association="Self.FK_104">
+            <End Role="StatusZamowienia" EntitySet="StatusZamowienia" />
+            <End Role="Zamowienie" EntitySet="Zamowienie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_187" Association="Self.FK_187">
+            <End Role="WydanieZewnetrzne" EntitySet="WydanieZewnetrzne" />
+            <End Role="WydanieZewnetrznePozycje" EntitySet="WydanieZewnetrznePozycje" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TransLogisticModelStoreContainer" CdmEntityContainer="TransLogisticEntities">
+          <EntitySetMapping Name="Adresy">
+            <EntityTypeMapping TypeName="TransLogisticModel.Adresy">
+              <MappingFragment StoreEntitySet="Adresy">
+                <ScalarProperty Name="adresy_id" ColumnName="adresy_id" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="miasto" ColumnName="miasto" />
+                <ScalarProperty Name="kod_pocztowy" ColumnName="kod_pocztowy" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DaneWysylki">
+            <EntityTypeMapping TypeName="TransLogisticModel.DaneWysylki">
+              <MappingFragment StoreEntitySet="DaneWysylki">
+                <ScalarProperty Name="dane_wysylki_id" ColumnName="dane_wysylki_id" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="adresy_id" ColumnName="adresy_id" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="nr_tel" ColumnName="nr_tel" />
+                <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Magazyn">
+            <EntityTypeMapping TypeName="TransLogisticModel.Magazyn">
+              <MappingFragment StoreEntitySet="Magazyn">
+                <ScalarProperty Name="magazyn_id" ColumnName="magazyn_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="adresy_id" ColumnName="adresy_id" />
+                <ScalarProperty Name="ladownosc" ColumnName="ladownosc" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paczka">
+            <EntityTypeMapping TypeName="TransLogisticModel.Paczka">
+              <MappingFragment StoreEntitySet="Paczka">
+                <ScalarProperty Name="paczka_id" ColumnName="paczka_id" />
+                <ScalarProperty Name="rozmiar_paczki_id" ColumnName="rozmiar_paczki_id" />
+                <ScalarProperty Name="rodzaj_paczki_id" ColumnName="rodzaj_paczki_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pojazd">
+            <EntityTypeMapping TypeName="TransLogisticModel.Pojazd">
+              <MappingFragment StoreEntitySet="Pojazd">
+                <ScalarProperty Name="pojazd_id" ColumnName="pojazd_id" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Ladownosc" ColumnName="Ladownosc" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PozycjaZamowienia">
+            <EntityTypeMapping TypeName="TransLogisticModel.PozycjaZamowienia">
+              <MappingFragment StoreEntitySet="PozycjaZamowienia">
+                <ScalarProperty Name="zamowienie_id" ColumnName="zamowienie_id" />
+                <ScalarProperty Name="paczka_id" ColumnName="paczka_id" />
+                <ScalarProperty Name="numer" ColumnName="numer" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownik">
+            <EntityTypeMapping TypeName="TransLogisticModel.Pracownik">
+              <MappingFragment StoreEntitySet="Pracownik">
+                <ScalarProperty Name="pracownik_id" ColumnName="pracownik_id" />
+                <ScalarProperty Name="adresy_id" ColumnName="adresy_id" />
+                <ScalarProperty Name="stanowisko_id" ColumnName="stanowisko_id" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="data_zatrudnienia" ColumnName="data_zatrudnienia" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Przewoz">
+            <EntityTypeMapping TypeName="TransLogisticModel.Przewoz">
+              <MappingFragment StoreEntitySet="Przewoz">
+                <ScalarProperty Name="przewoz_id" ColumnName="przewoz_id" />
+                <ScalarProperty Name="adres_dolwozu_id" ColumnName="adres_dolwozu_id" />
+                <ScalarProperty Name="status_przejazdu_id" ColumnName="status_przejazdu_id" />
+                <ScalarProperty Name="rodzaj_przejazu_id" ColumnName="rodzaj_przejazu_id" />
+                <ScalarProperty Name="pracownik_id" ColumnName="pracownik_id" />
+                <ScalarProperty Name="zamowienie_id" ColumnName="zamowienie_id" />
+                <ScalarProperty Name="pojazd_id" ColumnName="pojazd_id" />
+                <ScalarProperty Name="data_wyjazdu" ColumnName="data_wyjazdu" />
+                <ScalarProperty Name="data_przyjazdu" ColumnName="data_przyjazdu" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrzyjecieZewnetrzne">
+            <EntityTypeMapping TypeName="TransLogisticModel.PrzyjecieZewnetrzne">
+              <MappingFragment StoreEntitySet="PrzyjecieZewnetrzne">
+                <ScalarProperty Name="przyjecie_zewnetrzne_id" ColumnName="przyjecie_zewnetrzne_id" />
+                <ScalarProperty Name="numer" ColumnName="numer" />
+                <ScalarProperty Name="magazyn_id" ColumnName="magazyn_id" />
+                <ScalarProperty Name="data_wystawienia" ColumnName="data_wystawienia" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrzyjecieZewnetrznePozycje">
+            <EntityTypeMapping TypeName="TransLogisticModel.PrzyjecieZewnetrznePozycje">
+              <MappingFragment StoreEntitySet="PrzyjecieZewnetrznePozycje">
+                <ScalarProperty Name="przyjecie_zewnetrzne_pozycje_id" ColumnName="przyjecie_zewnetrzne_pozycje_id" />
+                <ScalarProperty Name="przyjecie_zewnetrzne_id" ColumnName="przyjecie_zewnetrzne_id" />
+                <ScalarProperty Name="paczka_id" ColumnName="paczka_id" />
+                <ScalarProperty Name="numer" ColumnName="numer" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RodzajPaczki">
+            <EntityTypeMapping TypeName="TransLogisticModel.RodzajPaczki">
+              <MappingFragment StoreEntitySet="RodzajPaczki">
+                <ScalarProperty Name="rodzaj_paczki_id" ColumnName="rodzaj_paczki_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RodzajPrzejazdu">
+            <EntityTypeMapping TypeName="TransLogisticModel.RodzajPrzejazdu">
+              <MappingFragment StoreEntitySet="RodzajPrzejazdu">
+                <ScalarProperty Name="rodzaj_przejazu_id" ColumnName="rodzaj_przejazu_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RozmiarPaczki">
+            <EntityTypeMapping TypeName="TransLogisticModel.RozmiarPaczki">
+              <MappingFragment StoreEntitySet="RozmiarPaczki">
+                <ScalarProperty Name="rozmiar_paczki_id" ColumnName="rozmiar_paczki_id" />
+                <ScalarProperty Name="nazwa_rozmiaru" ColumnName="nazwa_rozmiaru" />
+                <ScalarProperty Name="wysokosc_od" ColumnName="wysokosc_od" />
+                <ScalarProperty Name="wysokosc_do" ColumnName="wysokosc_do" />
+                <ScalarProperty Name="szerokosc_od" ColumnName="szerokosc_od" />
+                <ScalarProperty Name="szerokosc_do" ColumnName="szerokosc_do" />
+                <ScalarProperty Name="dlugosc_od" ColumnName="dlugosc_od" />
+                <ScalarProperty Name="dlugosc_do" ColumnName="dlugosc_do" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stanowisko">
+            <EntityTypeMapping TypeName="TransLogisticModel.Stanowisko">
+              <MappingFragment StoreEntitySet="Stanowisko">
+                <ScalarProperty Name="stanowisko_id" ColumnName="stanowisko_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="podstawowa_stawka" ColumnName="podstawowa_stawka" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusPrzejazdu">
+            <EntityTypeMapping TypeName="TransLogisticModel.StatusPrzejazdu">
+              <MappingFragment StoreEntitySet="StatusPrzejazdu">
+                <ScalarProperty Name="status_przejazdu_id" ColumnName="status_przejazdu_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusZamowienia">
+            <EntityTypeMapping TypeName="TransLogisticModel.StatusZamowienia">
+              <MappingFragment StoreEntitySet="StatusZamowienia">
+                <ScalarProperty Name="status_zamowienia_id" ColumnName="status_zamowienia_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WydanieZewnetrzne">
+            <EntityTypeMapping TypeName="TransLogisticModel.WydanieZewnetrzne">
+              <MappingFragment StoreEntitySet="WydanieZewnetrzne">
+                <ScalarProperty Name="wydanie_zewnetrzne_id" ColumnName="wydanie_zewnetrzne_id" />
+                <ScalarProperty Name="numer" ColumnName="numer" />
+                <ScalarProperty Name="magazyn_id" ColumnName="magazyn_id" />
+                <ScalarProperty Name="data_wystawienia" ColumnName="data-wystawienia" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WydanieZewnetrznePozycje">
+            <EntityTypeMapping TypeName="TransLogisticModel.WydanieZewnetrznePozycje">
+              <MappingFragment StoreEntitySet="WydanieZewnetrznePozycje">
+                <ScalarProperty Name="wydanie_zewnetrzne_pozycje_id" ColumnName="wydanie_zewnetrzne_pozycje_id" />
+                <ScalarProperty Name="wydanie_zewnetrzne_id" ColumnName="wydanie_zewnetrzne_id" />
+                <ScalarProperty Name="paczka_id" ColumnName="paczka_id" />
+                <ScalarProperty Name="numer" ColumnName="numer" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zamowienie">
+            <EntityTypeMapping TypeName="TransLogisticModel.Zamowienie">
+              <MappingFragment StoreEntitySet="Zamowienie">
+                <ScalarProperty Name="zamowienie_id" ColumnName="zamowienie_id" />
+                <ScalarProperty Name="data_zamowienia" ColumnName="data_zamowienia" />
+                <ScalarProperty Name="dane_wysylki_id" ColumnName="dane_wysylki_id" />
+                <ScalarProperty Name="status_zamowienia_id" ColumnName="status_zamowienia_id" />
+                <ScalarProperty Name="nr_zamowienia" ColumnName="nr_zamowienia" />
+                <ScalarProperty Name="kod" ColumnName="kod" />
+                <ScalarProperty Name="cena" ColumnName="cena" />
+                <ScalarProperty Name="waluta" ColumnName="waluta" />
+                <ScalarProperty Name="data_realizacji" ColumnName="data_realizacji" />
+                <ScalarProperty Name="aktywnosc" ColumnName="aktywnosc" />
+                <ScalarProperty Name="kto_dodal" ColumnName="kto_dodal" />
+                <ScalarProperty Name="kiedy_dodal" ColumnName="kiedy_dodal" />
+                <ScalarProperty Name="kto_edytowal" ColumnName="kto_edytowal" />
+                <ScalarProperty Name="kiedy_edytowal" ColumnName="kiedy_edytowal" />
+                <ScalarProperty Name="kto_usunal" ColumnName="kto_usunal" />
+                <ScalarProperty Name="kiedy_usunal" ColumnName="kiedy_usunal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
